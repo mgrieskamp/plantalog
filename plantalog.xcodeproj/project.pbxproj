@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		962543DE2A72E9EA00F82293 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543DD2A72E9EA00F82293 /* CustomCameraView.swift */; };
+		962543E02A74DD9A00F82293 /* PlantalogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543DF2A74DD9A00F82293 /* PlantalogEntry.swift */; };
+		962543E22A74E63A00F82293 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543E12A74E63A00F82293 /* CardView.swift */; };
+		963027982A71BF7A00A7F93B /* plantalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027972A71BF7A00A7F93B /* plantalogApp.swift */; };
+		9630279A2A71BF7A00A7F93B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027992A71BF7A00A7F93B /* ContentView.swift */; };
+		9630279C2A71BF7C00A7F93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9630279B2A71BF7C00A7F93B /* Assets.xcassets */; };
+		9630279F2A71BF7C00A7F93B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9630279E2A71BF7C00A7F93B /* Preview Assets.xcassets */; };
+		963027A92A71BF7D00A7F93B /* plantalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027A82A71BF7D00A7F93B /* plantalogTests.swift */; };
+		963027B32A71BF7D00A7F93B /* plantalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027B22A71BF7D00A7F93B /* plantalogUITests.swift */; };
+		963027B52A71BF7D00A7F93B /* plantalogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027B42A71BF7D00A7F93B /* plantalogUITestsLaunchTests.swift */; };
+		963027C22A71BFE400A7F93B /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027C12A71BFE400A7F93B /* CameraService.swift */; };
+		963027C52A71CFBA00A7F93B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027C42A71CFBA00A7F93B /* CameraView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		963027A52A71BF7D00A7F93B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9630278C2A71BF7A00A7F93B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 963027932A71BF7A00A7F93B;
+			remoteInfo = plantalog;
+		};
+		963027AF2A71BF7D00A7F93B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9630278C2A71BF7A00A7F93B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 963027932A71BF7A00A7F93B;
+			remoteInfo = plantalog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		962543DD2A72E9EA00F82293 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
+		962543DF2A74DD9A00F82293 /* PlantalogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantalogEntry.swift; sourceTree = "<group>"; };
+		962543E12A74E63A00F82293 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		963027942A71BF7A00A7F93B /* plantalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plantalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		963027972A71BF7A00A7F93B /* plantalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plantalogApp.swift; sourceTree = "<group>"; };
+		963027992A71BF7A00A7F93B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9630279B2A71BF7C00A7F93B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9630279E2A71BF7C00A7F93B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		963027A42A71BF7D00A7F93B /* plantalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plantalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		963027A82A71BF7D00A7F93B /* plantalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plantalogTests.swift; sourceTree = "<group>"; };
+		963027AE2A71BF7D00A7F93B /* plantalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plantalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		963027B22A71BF7D00A7F93B /* plantalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plantalogUITests.swift; sourceTree = "<group>"; };
+		963027B42A71BF7D00A7F93B /* plantalogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plantalogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		963027C12A71BFE400A7F93B /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		963027C32A71C8A300A7F93B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		963027C42A71CFBA00A7F93B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		963027912A71BF7A00A7F93B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		963027A12A71BF7D00A7F93B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		963027AB2A71BF7D00A7F93B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9630278B2A71BF7A00A7F93B = {
+			isa = PBXGroup;
+			children = (
+				963027962A71BF7A00A7F93B /* plantalog */,
+				963027A72A71BF7D00A7F93B /* plantalogTests */,
+				963027B12A71BF7D00A7F93B /* plantalogUITests */,
+				963027952A71BF7A00A7F93B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		963027952A71BF7A00A7F93B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				963027942A71BF7A00A7F93B /* plantalog.app */,
+				963027A42A71BF7D00A7F93B /* plantalogTests.xctest */,
+				963027AE2A71BF7D00A7F93B /* plantalogUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		963027962A71BF7A00A7F93B /* plantalog */ = {
+			isa = PBXGroup;
+			children = (
+				963027C32A71C8A300A7F93B /* Info.plist */,
+				963027972A71BF7A00A7F93B /* plantalogApp.swift */,
+				962543DF2A74DD9A00F82293 /* PlantalogEntry.swift */,
+				963027992A71BF7A00A7F93B /* ContentView.swift */,
+				9630279B2A71BF7C00A7F93B /* Assets.xcassets */,
+				963027C12A71BFE400A7F93B /* CameraService.swift */,
+				963027C42A71CFBA00A7F93B /* CameraView.swift */,
+				962543DD2A72E9EA00F82293 /* CustomCameraView.swift */,
+				962543E12A74E63A00F82293 /* CardView.swift */,
+				9630279D2A71BF7C00A7F93B /* Preview Content */,
+			);
+			path = plantalog;
+			sourceTree = "<group>";
+		};
+		9630279D2A71BF7C00A7F93B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9630279E2A71BF7C00A7F93B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		963027A72A71BF7D00A7F93B /* plantalogTests */ = {
+			isa = PBXGroup;
+			children = (
+				963027A82A71BF7D00A7F93B /* plantalogTests.swift */,
+			);
+			path = plantalogTests;
+			sourceTree = "<group>";
+		};
+		963027B12A71BF7D00A7F93B /* plantalogUITests */ = {
+			isa = PBXGroup;
+			children = (
+				963027B22A71BF7D00A7F93B /* plantalogUITests.swift */,
+				963027B42A71BF7D00A7F93B /* plantalogUITestsLaunchTests.swift */,
+			);
+			path = plantalogUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		963027932A71BF7A00A7F93B /* plantalog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 963027B82A71BF7D00A7F93B /* Build configuration list for PBXNativeTarget "plantalog" */;
+			buildPhases = (
+				963027902A71BF7A00A7F93B /* Sources */,
+				963027912A71BF7A00A7F93B /* Frameworks */,
+				963027922A71BF7A00A7F93B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = plantalog;
+			productName = plantalog;
+			productReference = 963027942A71BF7A00A7F93B /* plantalog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		963027A32A71BF7D00A7F93B /* plantalogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 963027BB2A71BF7D00A7F93B /* Build configuration list for PBXNativeTarget "plantalogTests" */;
+			buildPhases = (
+				963027A02A71BF7D00A7F93B /* Sources */,
+				963027A12A71BF7D00A7F93B /* Frameworks */,
+				963027A22A71BF7D00A7F93B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				963027A62A71BF7D00A7F93B /* PBXTargetDependency */,
+			);
+			name = plantalogTests;
+			productName = plantalogTests;
+			productReference = 963027A42A71BF7D00A7F93B /* plantalogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		963027AD2A71BF7D00A7F93B /* plantalogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 963027BE2A71BF7D00A7F93B /* Build configuration list for PBXNativeTarget "plantalogUITests" */;
+			buildPhases = (
+				963027AA2A71BF7D00A7F93B /* Sources */,
+				963027AB2A71BF7D00A7F93B /* Frameworks */,
+				963027AC2A71BF7D00A7F93B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				963027B02A71BF7D00A7F93B /* PBXTargetDependency */,
+			);
+			name = plantalogUITests;
+			productName = plantalogUITests;
+			productReference = 963027AE2A71BF7D00A7F93B /* plantalogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9630278C2A71BF7A00A7F93B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					963027932A71BF7A00A7F93B = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					963027A32A71BF7D00A7F93B = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 963027932A71BF7A00A7F93B;
+					};
+					963027AD2A71BF7D00A7F93B = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 963027932A71BF7A00A7F93B;
+					};
+				};
+			};
+			buildConfigurationList = 9630278F2A71BF7A00A7F93B /* Build configuration list for PBXProject "plantalog" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9630278B2A71BF7A00A7F93B;
+			productRefGroup = 963027952A71BF7A00A7F93B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				963027932A71BF7A00A7F93B /* plantalog */,
+				963027A32A71BF7D00A7F93B /* plantalogTests */,
+				963027AD2A71BF7D00A7F93B /* plantalogUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		963027922A71BF7A00A7F93B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9630279F2A71BF7C00A7F93B /* Preview Assets.xcassets in Resources */,
+				9630279C2A71BF7C00A7F93B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		963027A22A71BF7D00A7F93B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		963027AC2A71BF7D00A7F93B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		963027902A71BF7A00A7F93B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				962543E22A74E63A00F82293 /* CardView.swift in Sources */,
+				9630279A2A71BF7A00A7F93B /* ContentView.swift in Sources */,
+				963027982A71BF7A00A7F93B /* plantalogApp.swift in Sources */,
+				962543DE2A72E9EA00F82293 /* CustomCameraView.swift in Sources */,
+				963027C22A71BFE400A7F93B /* CameraService.swift in Sources */,
+				963027C52A71CFBA00A7F93B /* CameraView.swift in Sources */,
+				962543E02A74DD9A00F82293 /* PlantalogEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		963027A02A71BF7D00A7F93B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				963027A92A71BF7D00A7F93B /* plantalogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		963027AA2A71BF7D00A7F93B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				963027B32A71BF7D00A7F93B /* plantalogUITests.swift in Sources */,
+				963027B52A71BF7D00A7F93B /* plantalogUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		963027A62A71BF7D00A7F93B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 963027932A71BF7A00A7F93B /* plantalog */;
+			targetProxy = 963027A52A71BF7D00A7F93B /* PBXContainerItemProxy */;
+		};
+		963027B02A71BF7D00A7F93B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 963027932A71BF7A00A7F93B /* plantalog */;
+			targetProxy = 963027AF2A71BF7D00A7F93B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		963027B62A71BF7D00A7F93B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		963027B72A71BF7D00A7F93B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		963027B92A71BF7D00A7F93B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"plantalog/Preview Content\"";
+				DEVELOPMENT_TEAM = YTLHPL3JBR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = plantalog/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to camera to take photos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.plantalog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		963027BA2A71BF7D00A7F93B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"plantalog/Preview Content\"";
+				DEVELOPMENT_TEAM = YTLHPL3JBR;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = plantalog/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to camera to take photos.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.plantalog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		963027BC2A71BF7D00A7F93B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.plantalogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plantalog.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/plantalog";
+			};
+			name = Debug;
+		};
+		963027BD2A71BF7D00A7F93B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.plantalogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/plantalog.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/plantalog";
+			};
+			name = Release;
+		};
+		963027BF2A71BF7D00A7F93B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.plantalogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = plantalog;
+			};
+			name = Debug;
+		};
+		963027C02A71BF7D00A7F93B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.plantalogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = plantalog;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9630278F2A71BF7A00A7F93B /* Build configuration list for PBXProject "plantalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				963027B62A71BF7D00A7F93B /* Debug */,
+				963027B72A71BF7D00A7F93B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		963027B82A71BF7D00A7F93B /* Build configuration list for PBXNativeTarget "plantalog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				963027B92A71BF7D00A7F93B /* Debug */,
+				963027BA2A71BF7D00A7F93B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		963027BB2A71BF7D00A7F93B /* Build configuration list for PBXNativeTarget "plantalogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				963027BC2A71BF7D00A7F93B /* Debug */,
+				963027BD2A71BF7D00A7F93B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		963027BE2A71BF7D00A7F93B /* Build configuration list for PBXNativeTarget "plantalogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				963027BF2A71BF7D00A7F93B /* Debug */,
+				963027C02A71BF7D00A7F93B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9630278C2A71BF7A00A7F93B /* Project object */;
+}
