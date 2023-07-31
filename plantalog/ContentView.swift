@@ -21,7 +21,7 @@ struct ContentView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             } else {
-                Color(uiColor: UIColor.systemBackground)
+                EntriesView(entries: PlantalogEntry.sampleData)
             }
             VStack {
                 Spacer()
@@ -31,8 +31,8 @@ struct ContentView: View {
                     Image(systemName: "camera.fill")
                         .font(.largeTitle)
                         .padding()
-                        .background(Color.black)
-                        .foregroundColor(.white)
+                        .background(Theme.forest.mainColor)
+                        .foregroundColor(Theme.forest.accentColor)
                         .clipShape(Circle())
                 })
                 .padding(.bottom)

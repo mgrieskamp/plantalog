@@ -10,6 +10,8 @@
 		962543DE2A72E9EA00F82293 /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543DD2A72E9EA00F82293 /* CustomCameraView.swift */; };
 		962543E02A74DD9A00F82293 /* PlantalogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543DF2A74DD9A00F82293 /* PlantalogEntry.swift */; };
 		962543E22A74E63A00F82293 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543E12A74E63A00F82293 /* CardView.swift */; };
+		962543E52A75A25A00F82293 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543E42A75A25A00F82293 /* Theme.swift */; };
+		962543E72A76E4D700F82293 /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962543E62A76E4D700F82293 /* EntriesView.swift */; };
 		963027982A71BF7A00A7F93B /* plantalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027972A71BF7A00A7F93B /* plantalogApp.swift */; };
 		9630279A2A71BF7A00A7F93B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963027992A71BF7A00A7F93B /* ContentView.swift */; };
 		9630279C2A71BF7C00A7F93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9630279B2A71BF7C00A7F93B /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		962543DD2A72E9EA00F82293 /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		962543DF2A74DD9A00F82293 /* PlantalogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantalogEntry.swift; sourceTree = "<group>"; };
 		962543E12A74E63A00F82293 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		962543E42A75A25A00F82293 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		962543E62A76E4D700F82293 /* EntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
 		963027942A71BF7A00A7F93B /* plantalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plantalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		963027972A71BF7A00A7F93B /* plantalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plantalogApp.swift; sourceTree = "<group>"; };
 		963027992A71BF7A00A7F93B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		962543E32A75A24600F82293 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				962543DF2A74DD9A00F82293 /* PlantalogEntry.swift */,
+				962543E42A75A25A00F82293 /* Theme.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9630278B2A71BF7A00A7F93B = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +118,13 @@
 		963027962A71BF7A00A7F93B /* plantalog */ = {
 			isa = PBXGroup;
 			children = (
+				962543E62A76E4D700F82293 /* EntriesView.swift */,
 				963027C32A71C8A300A7F93B /* Info.plist */,
 				963027972A71BF7A00A7F93B /* plantalogApp.swift */,
-				962543DF2A74DD9A00F82293 /* PlantalogEntry.swift */,
 				963027992A71BF7A00A7F93B /* ContentView.swift */,
 				9630279B2A71BF7C00A7F93B /* Assets.xcassets */,
 				963027C12A71BFE400A7F93B /* CameraService.swift */,
+				962543E32A75A24600F82293 /* Models */,
 				963027C42A71CFBA00A7F93B /* CameraView.swift */,
 				962543DD2A72E9EA00F82293 /* CustomCameraView.swift */,
 				962543E12A74E63A00F82293 /* CardView.swift */,
@@ -275,9 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				962543E22A74E63A00F82293 /* CardView.swift in Sources */,
+				962543E52A75A25A00F82293 /* Theme.swift in Sources */,
 				9630279A2A71BF7A00A7F93B /* ContentView.swift in Sources */,
 				963027982A71BF7A00A7F93B /* plantalogApp.swift in Sources */,
 				962543DE2A72E9EA00F82293 /* CustomCameraView.swift in Sources */,
+				962543E72A76E4D700F82293 /* EntriesView.swift in Sources */,
 				963027C22A71BFE400A7F93B /* CameraService.swift in Sources */,
 				963027C52A71CFBA00A7F93B /* CameraView.swift in Sources */,
 				962543E02A74DD9A00F82293 /* PlantalogEntry.swift in Sources */,
@@ -443,7 +459,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = plantalog/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to camera to take photos.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to take photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app accesses and saves photos in your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -474,7 +491,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = plantalog/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to camera to take photos.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to take photos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app accesses and saves photos in your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

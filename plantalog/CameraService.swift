@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import Photos
 
 public class CameraService {
     
@@ -24,10 +25,30 @@ public class CameraService {
     }
     
     private func checkPermissions(completion: @escaping (Error?) -> ()) {
+        // check permission to take photos
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
+            AVCaptureDevice.requestAccess(for: .video) { granted in
+                // if did not get permission, do not move on to next check
                 guard granted else { return }
+            }
+        case .restricted:
+            return
+        case .denied:
+            return
+        case .authorized:
+            // move on to next check
+            break
+        @unknown default:
+            return
+        }
+        
+        // check permission to save and access photos
+        switch PHPhotoLibrary.authorizationStatus(for: .readWrite) {
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { [weak self] status in
+                guard (status == .authorized) else { return }
+                // all permissions granted, set up camera
                 DispatchQueue.main.async {
                     self?.setUpCamera(completion: completion)
                 }
@@ -37,6 +58,8 @@ public class CameraService {
         case .denied:
             break
         case .authorized:
+            setUpCamera(completion: completion)
+        case .limited:
             setUpCamera(completion: completion)
         @unknown default:
             break
