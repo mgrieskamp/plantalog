@@ -34,7 +34,9 @@ struct CustomCameraView: View {
             VStack {
                 Spacer()
                 Button(action: {
-                    cameraService.capturePhoto()
+                    if cameraService.checkPermissions() {
+                        cameraService.capturePhoto()
+                    }
                 }, label: {
                     Image(systemName: "circle")
                         .font(.system(size: 72))
