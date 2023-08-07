@@ -18,7 +18,7 @@ struct EntriesView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 10), GridItem(.adaptive(minimum: 100), spacing: 10)], spacing: 10) {
                         
                         ForEach(entries, id: \.species) { entry in
-                            NavigationLink(destination: Text(entry.species)) {
+                            NavigationLink(destination: DetailView(entry: entry)) {
                                 CardView(entry: entry)
                             }
                             .scaledToFit()

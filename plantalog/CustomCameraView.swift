@@ -11,6 +11,8 @@ struct CustomCameraView: View {
     
     let cameraService = CameraService()
     @Binding var capturedImage: UIImage?
+    @Binding var isEditViewPresented: Bool
+    @Binding var entry: PlantalogEntry
     
     @Environment(\.presentationMode) private var presentationMode
     
@@ -19,9 +21,11 @@ struct CustomCameraView: View {
         ZStack {
             CameraView(cameraService: cameraService) { result in
                 switch result {
-                case .success(let photo):
+                case .success(let (photo, assetID)):
                     if let data = photo.fileDataRepresentation() {
                         capturedImage = UIImage(data: data)
+                        entry.photoID = assetID
+                        isEditViewPresented = true
                         presentationMode.wrappedValue.dismiss()
                     } else {
                         print("Error: No image data found")
@@ -36,6 +40,8 @@ struct CustomCameraView: View {
                 Button(action: {
                     if cameraService.checkPermissions() {
                         cameraService.capturePhoto()
+                    } else {
+                        // TODO: make pop-up to ask users to change permissions in settings
                     }
                 }, label: {
                     Image(systemName: "circle")

@@ -11,18 +11,15 @@ struct ContentView: View {
     
     @State private var capturedImage: UIImage? = nil
     @State private var isCustomViewPresented = false
+    @State private var isEditViewPresented = false
+    @State private var entry: PlantalogEntry = PlantalogEntry.emptyEntry
+    @State private var entries: [PlantalogEntry] = []
     
     
     var body: some View {
         ZStack {
-            if capturedImage != nil {
-                Image(uiImage: capturedImage!)
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-            } else {
-                EntriesView(entries: PlantalogEntry.sampleData)
-            }
+            EntriesView(entries: PlantalogEntry.sampleData)
+            
             VStack {
                 Spacer()
                 Button(action: {
@@ -36,7 +33,10 @@ struct ContentView: View {
                         .clipShape(Circle())
                 })
                 .padding(.bottom)
-                .sheet(isPresented: $isCustomViewPresented, content: { CustomCameraView(capturedImage: $capturedImage)})
+                
+                .sheet(isPresented: $isCustomViewPresented, content: { CustomCameraView(capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented, entry: $entry)})
+                
+                .sheet(isPresented: $isEditViewPresented, content: { DetailEditView(entries: $entries, entry: $entry, capturedImage: capturedImage!)})
                         
             }
         }

@@ -13,7 +13,8 @@ struct CardView: View {
     var body: some View {
         GeometryReader { screen in
             VStack(alignment: .leading, spacing: 0) {
-                entry.photo
+                // entry.photo
+                Image("tulip")
                     .resizable()
                     .frame(width: screen.size.width, height: 0.75 * screen.size.width, alignment: .top)
                     .aspectRatio(contentMode: .fill)

@@ -13,7 +13,7 @@ struct CameraView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UIViewController
     
     let cameraService: CameraService
-    let didFinishProcessingPhoto: (Result<AVCapturePhoto, Error>) -> ()
+    let didFinishProcessingPhoto: (Result<(AVCapturePhoto, String), Error>) -> ()
     
     func makeUIViewController(context: Context) -> UIViewController {
         
@@ -42,11 +42,13 @@ struct CameraView: UIViewControllerRepresentable {
     
     class Coordinator: NSObject, AVCapturePhotoCaptureDelegate {
         let parent: CameraView
-        private var didFinishProcessingPhoto: (Result<AVCapturePhoto, Error>) -> ()
+        private var didFinishProcessingPhoto: (Result<(AVCapturePhoto, String), Error>) -> ()
+        private var assetID: String?
         
-        init(_ parent: CameraView, didFinishProcessingPhoto: @escaping (Result<AVCapturePhoto, Error>) -> ()) {
+        init(_ parent: CameraView, didFinishProcessingPhoto: @escaping (Result<(AVCapturePhoto, String), Error>) -> ()) {
             self.parent = parent
             self.didFinishProcessingPhoto = didFinishProcessingPhoto
+            self.assetID = nil
         }
         
         func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
@@ -56,15 +58,17 @@ struct CameraView: UIViewControllerRepresentable {
             Task {
                 await save(photo: photo)
             }
-            didFinishProcessingPhoto(.success(photo))
+            didFinishProcessingPhoto(.success((photo, assetID!)))
         }
         
         func save(photo: AVCapturePhoto) async {
+            
             if let photoData = photo.fileDataRepresentation() {
                 PHPhotoLibrary.shared().performChanges {
                     // save photo
                     let creationRequest = PHAssetCreationRequest.forAsset()
                     creationRequest.addResource(with: .photo, data: photoData, options: nil)
+                    self.assetID = creationRequest.placeholderForCreatedAsset?.localIdentifier ?? nil
                 } completionHandler: { success, error in
                     if let error {
                         print("Error saving photo: \(error.localizedDescription)")
