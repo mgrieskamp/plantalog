@@ -25,8 +25,8 @@ struct CustomCameraView: View {
                     if let data = photo.fileDataRepresentation() {
                         capturedImage = UIImage(data: data)
                         entry.photoID = assetID
-                        isEditViewPresented = true
                         presentationMode.wrappedValue.dismiss()
+                        isEditViewPresented.toggle()
                     } else {
                         print("Error: No image data found")
                     }

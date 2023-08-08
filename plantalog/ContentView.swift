@@ -13,12 +13,13 @@ struct ContentView: View {
     @State private var isCustomViewPresented = false
     @State private var isEditViewPresented = false
     @State private var entry: PlantalogEntry = PlantalogEntry.emptyEntry
-    @State private var entries: [PlantalogEntry] = []
+    @State private var model: EntryModel = .init()
     
+    @StateObject var photoLibraryService = PhotoLibraryService()
     
     var body: some View {
         ZStack {
-            EntriesView(entries: PlantalogEntry.sampleData)
+            EntriesView(model: $model)
             
             VStack {
                 Spacer()
@@ -36,11 +37,13 @@ struct ContentView: View {
                 
                 .sheet(isPresented: $isCustomViewPresented, content: { CustomCameraView(capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented, entry: $entry)})
                 
-                .sheet(isPresented: $isEditViewPresented, content: { DetailEditView(entries: $entries, entry: $entry, capturedImage: capturedImage!)})
+                .sheet(isPresented: $isEditViewPresented, content: { DetailEditView(model: $model, entry: $entry, capturedImage: $capturedImage)})
                         
             }
         }
+        .environmentObject(photoLibraryService)
     }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {

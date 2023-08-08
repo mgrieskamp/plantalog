@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct DetailEditView: View {
-    @Binding var entries: [PlantalogEntry]
+    @Binding var model: EntryModel
     @Binding var entry: PlantalogEntry
-    var capturedImage: UIImage
+    @Binding var capturedImage: UIImage?
     
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
         GeometryReader { screen in
             VStack (spacing: 0) {
-                Image(uiImage: capturedImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: screen.size.width, height: 0.4 * screen.size.height)
-                
+                if let capturedImage = capturedImage {
+                    Image(uiImage: capturedImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: screen.size.width, height: 0.4 * screen.size.height)
+                } else {
+                    Rectangle()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: screen.size.width, height: 0.4 * screen.size.height)
+                }
                 NavigationStack {
                     Form {
                         Section (header: Text("Species Information")){
@@ -55,7 +60,7 @@ struct DetailEditView: View {
                         ToolbarItem(placement: .confirmationAction) {
                             Button(action: {
                                 // TODO: check whether new entry is created or whether we're editing an existing entry
-                                entries.append(entry)
+                                model.entries.append(entry)
                                 presentationMode.wrappedValue.dismiss()
                             }) {
                                 Text("Done")
@@ -63,7 +68,7 @@ struct DetailEditView: View {
                             }
                         }
                     }
-                    .navigationBarTitle(Text("Edit Entry").font(.headline))
+                    .navigationBarTitle("Edit Entry")
                     .scrollContentBackground(.hidden)
                 }
                 .frame(width: screen.size.width, height: 0.6 * screen.size.height)
@@ -74,8 +79,18 @@ struct DetailEditView: View {
 
 struct DetailEditView_Previews: PreviewProvider {
     @State static private var entry: PlantalogEntry = PlantalogEntry.emptyEntry
-    @State static private var entries: [PlantalogEntry] = PlantalogEntry.sampleData
+    @State static private var model: EntryModel = EntryModel()
+    @State static private var capturedImage: UIImage? = UIImage(named:"tulip")
+    
+    init() {
+        for entry in PlantalogEntry.sampleData {
+            DetailEditView_Previews.model.entries.append(entry)
+        }
+    }
+    
+    
+    
     static var previews: some View {
-        DetailEditView(entries: $entries, entry: $entry, capturedImage: UIImage(named:"tulip")!)
+        DetailEditView(model: $model, entry: $entry, capturedImage: $capturedImage)
     }
 }

@@ -44,6 +44,7 @@ struct CameraView: UIViewControllerRepresentable {
         let parent: CameraView
         private var didFinishProcessingPhoto: (Result<(AVCapturePhoto, String), Error>) -> ()
         private var assetID: String?
+        private var doneSaving: Bool = false
         
         init(_ parent: CameraView, didFinishProcessingPhoto: @escaping (Result<(AVCapturePhoto, String), Error>) -> ()) {
             self.parent = parent
@@ -56,27 +57,40 @@ struct CameraView: UIViewControllerRepresentable {
                 didFinishProcessingPhoto(.failure(error))
             }
             Task {
-                await save(photo: photo)
+                await save(photo: photo) { [self] assetID in
+                    if let assetID = assetID {
+                        didFinishProcessingPhoto(.success((photo, assetID)))
+                    } else {
+                        didFinishProcessingPhoto(.failure(CameraError.NoAssetID))
+                    }
+                }
             }
-            didFinishProcessingPhoto(.success((photo, assetID!)))
         }
         
-        func save(photo: AVCapturePhoto) async {
-            
+        func save(photo: AVCapturePhoto, completion: @escaping (String?) -> Void ) async {
+            doneSaving = false
             if let photoData = photo.fileDataRepresentation() {
                 PHPhotoLibrary.shared().performChanges {
                     // save photo
                     let creationRequest = PHAssetCreationRequest.forAsset()
                     creationRequest.addResource(with: .photo, data: photoData, options: nil)
                     self.assetID = creationRequest.placeholderForCreatedAsset?.localIdentifier ?? nil
+                    completion(self.assetID)
+                    
                 } completionHandler: { success, error in
                     if let error {
                         print("Error saving photo: \(error.localizedDescription)")
                         return
                     }
+                    
                 }
             }
         }
         
+        
     }
+}
+
+enum CameraError: Error {
+    case NoAssetID
 }

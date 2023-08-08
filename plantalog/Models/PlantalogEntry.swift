@@ -50,3 +50,14 @@ extension PlantalogEntry {
                        notes: "some tulips")
     ]
 }
+
+class EntryModel {
+    
+    var entries: [PlantalogEntry] = []
+    var numEntries: Int { entries.count }
+    var photoIDs: [String] { entries.map(\.photoID ).filter( {$0 != nil} ).map({$0!}) }
+    var species: [String] { entries.map(\.species) }
+    var dates: [Date] { entries.map(\.dateDiscovered) }
+    var locations: [String] { entries.map(\.locationDiscovered) }
+    
+}
