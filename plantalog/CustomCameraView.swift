@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomCameraView: View {
     
     let cameraService = CameraService()
-    @Binding var capturedImage: UIImage?
+    @Binding var capturedImage: Image?
     @Binding var isEditViewPresented: Bool
     @Binding var entry: PlantalogEntry
     
@@ -23,7 +23,9 @@ struct CustomCameraView: View {
                 switch result {
                 case .success(let (photo, assetID)):
                     if let data = photo.fileDataRepresentation() {
-                        capturedImage = UIImage(data: data)
+                        if let uiImage = UIImage(data: data) {
+                            capturedImage = Image(uiImage: uiImage)
+                        }
                         entry.photoID = assetID
                         presentationMode.wrappedValue.dismiss()
                         isEditViewPresented.toggle()

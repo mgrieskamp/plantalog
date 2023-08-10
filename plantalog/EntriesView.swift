@@ -10,7 +10,7 @@ import SwiftUI
 struct EntriesView: View {
     @EnvironmentObject var photoLibraryService: PhotoLibraryService
     @State private var showErrorPrompt = false
-    @Binding var model: EntryModel
+    @EnvironmentObject var model: EntryModel
     
     var body: some View {
         ZStack {
@@ -20,7 +20,7 @@ struct EntriesView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 10), GridItem(.adaptive(minimum: 100), spacing: 10)], spacing: 10) {
                         
-                        ForEach(model.entries, id: \.species) { entry in
+                        ForEach($model.entries, id: \.species) { entry in
                             NavigationLink(destination: DetailView(entry: entry)) {
                                 CardView(entry: entry)
                             }
@@ -55,7 +55,7 @@ extension EntriesView{
 }
 
 struct EntriesView_Previews: PreviewProvider {
-    @State static private var model: EntryModel = EntryModel()
+    @StateObject static private var model: EntryModel = EntryModel()
     
     init() {
         for entry in PlantalogEntry.sampleData {
@@ -63,6 +63,7 @@ struct EntriesView_Previews: PreviewProvider {
         }
     }
     static var previews: some View {
-        EntriesView(model: $model)
+        EntriesView()
+            .environmentObject(model)
     }
 }

@@ -51,9 +51,9 @@ extension PlantalogEntry {
     ]
 }
 
-class EntryModel {
+class EntryModel: ObservableObject {
     
-    var entries: [PlantalogEntry] = []
+    @Published var entries: [PlantalogEntry] = []
     var numEntries: Int { entries.count }
     var photoIDs: [String] { entries.map(\.photoID ).filter( {$0 != nil} ).map({$0!}) }
     var species: [String] { entries.map(\.species) }

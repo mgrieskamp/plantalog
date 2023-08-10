@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var capturedImage: UIImage? = nil
+    @State private var capturedImage: Image? = nil
     @State private var isCustomViewPresented = false
     @State private var isEditViewPresented = false
     @State private var entry: PlantalogEntry = PlantalogEntry.emptyEntry
-    @State private var model: EntryModel = .init()
+    @StateObject private var model: EntryModel = .init()
     
     @StateObject var photoLibraryService = PhotoLibraryService()
     
     var body: some View {
         ZStack {
-            EntriesView(model: $model)
+            EntriesView()
             
             VStack {
                 Spacer()
@@ -37,11 +37,17 @@ struct ContentView: View {
                 
                 .sheet(isPresented: $isCustomViewPresented, content: { CustomCameraView(capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented, entry: $entry)})
                 
-                .sheet(isPresented: $isEditViewPresented, content: { DetailEditView(model: $model, entry: $entry, capturedImage: $capturedImage)})
+                .sheet(isPresented: $isEditViewPresented, onDismiss: {
+                    photoLibraryService.fetchAllPhotos(assetsToFetch: model.photoIDs)
+                    entry = PlantalogEntry.emptyEntry
+                }){
+                    DetailEditView(entry: $entry, capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented, isNewEntry: true, editedEntry: $entry.wrappedValue)
+                }
                         
             }
         }
         .environmentObject(photoLibraryService)
+        .environmentObject(model)
     }
         
 }

@@ -70,20 +70,27 @@ struct CameraView: UIViewControllerRepresentable {
         func save(photo: AVCapturePhoto, completion: @escaping (String?) -> Void ) async {
             doneSaving = false
             if let photoData = photo.fileDataRepresentation() {
-                PHPhotoLibrary.shared().performChanges {
-                    // save photo
-                    let creationRequest = PHAssetCreationRequest.forAsset()
-                    creationRequest.addResource(with: .photo, data: photoData, options: nil)
-                    self.assetID = creationRequest.placeholderForCreatedAsset?.localIdentifier ?? nil
-                    completion(self.assetID)
-                    
-                } completionHandler: { success, error in
-                    if let error {
-                        print("Error saving photo: \(error.localizedDescription)")
-                        return
+                do {
+                    try PHPhotoLibrary.shared().performChangesAndWait {
+                        // save photo
+                        let creationRequest = PHAssetCreationRequest.forAsset()
+                        creationRequest.addResource(with: .photo, data: photoData, options: nil)
+                        self.assetID = creationRequest.placeholderForCreatedAsset?.localIdentifier ?? nil
+                        completion(self.assetID)
+                        
                     }
-                    
+                } catch {
+                    print("Error saving photo: \(error.localizedDescription)")
+                    return
                 }
+                    
+//                completionHandler: { success, error in
+//                    if let error {
+//                        print("Error saving photo: \(error.localizedDescription)")
+//                        return
+//                    }
+//
+//                }
             }
         }
         

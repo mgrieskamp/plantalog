@@ -10,9 +10,9 @@ import Photos
 
 struct CardView: View {
     @EnvironmentObject var photoLibraryService: PhotoLibraryService
-    @State private var image: Image?
+    @State var image: Image?
     let theme: Theme = .celadon
-    let entry: PlantalogEntry
+    @Binding var entry: PlantalogEntry
     var body: some View {
         GeometryReader { screen in
             VStack(alignment: .leading, spacing: 0) {
@@ -20,15 +20,16 @@ struct CardView: View {
                 if let image = image {
                     image
                         .resizable()
-                        .frame(width: screen.size.width, height: 0.75 * screen.size.width, alignment: .top)
                         .aspectRatio(contentMode: .fill)
+                        .frame(width: screen.size.width, height: 0.75 * screen.size.width, alignment: .top)
                         .clipped()
+                        .aspectRatio(contentMode: .fit)
                 } else {
                     ZStack {
                         Rectangle()
                             .foregroundColor(.gray)
                             .frame(width: screen.size.width, height: 0.75 * screen.size.width, alignment: .top)
-                            .aspectRatio(contentMode: .fill)
+                            .aspectRatio(contentMode: .fit)
                         ProgressView()
                     }
                     
@@ -38,7 +39,6 @@ struct CardView: View {
                 theme.mainColor
                     .frame(width: screen.size.width, height: 0.25 * screen.size.width, alignment: .top)
                     .aspectRatio(contentMode: .fill)
-                    
                     .overlay(alignment: .center) {
                         VStack (spacing: 2){
                             Text(entry.species)
@@ -50,6 +50,9 @@ struct CardView: View {
                                     .foregroundColor(theme.accentColor)
                             }
                         }
+                        .scaledToFill()
+                        .minimumScaleFactor(0.5)
+                        .frame(width: screen.size.width - 40, height: 0.25 * screen.size.width - 40)
 
                     }
             }
@@ -72,7 +75,8 @@ extension CardView {
             guard let uiImage = try? await photoLibraryService
             .fetchImage(
                 localID: self.entry.photoID!,
-                targetSize: targetSize
+                targetSize: targetSize,
+                contentMode: .aspectFill
             ) else {
                 image = nil
                 return
@@ -83,9 +87,9 @@ extension CardView {
 
 
 struct CardView_Previews: PreviewProvider {
-    static var entry = PlantalogEntry.sampleData[0]
+    @State static var entry = PlantalogEntry.sampleData[0]
     static var previews: some View {
-        CardView(entry: entry)
+        CardView(entry: $entry)
             .previewLayout(.fixed(width: 300, height: 300))
 
     }
