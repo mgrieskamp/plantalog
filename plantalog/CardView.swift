@@ -21,7 +21,7 @@ struct CardView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: screen.size.width, height: 0.75 * screen.size.width, alignment: .top)
+                        .frame(width: screen.size.width, height: 0.75 * screen.size.width)
                         .clipped()
                         .aspectRatio(contentMode: .fit)
                 } else {
@@ -52,7 +52,7 @@ struct CardView: View {
                         }
                         .scaledToFill()
                         .minimumScaleFactor(0.5)
-                        .frame(width: screen.size.width - 40, height: 0.25 * screen.size.width - 40)
+                        .frame(width: screen.size.width - 20, height: 0.25 * screen.size.width - 20)
 
                     }
             }
@@ -94,3 +94,4 @@ struct CardView_Previews: PreviewProvider {
 
     }
 }
+

@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomCameraView: View {
     
     let cameraService = CameraService()
+    @Binding var searchImage: UIImage?
     @Binding var capturedImage: Image?
     @Binding var isEditViewPresented: Bool
     @Binding var entry: PlantalogEntry
@@ -24,6 +25,7 @@ struct CustomCameraView: View {
                 case .success(let (photo, assetID)):
                     if let data = photo.fileDataRepresentation() {
                         if let uiImage = UIImage(data: data) {
+                            searchImage = uiImage
                             capturedImage = Image(uiImage: uiImage)
                         }
                         entry.photoID = assetID

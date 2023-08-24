@@ -17,14 +17,6 @@ struct DetailEditView: View {
     
     @Environment(\.presentationMode) private var presentationMode
     
-//    init(entry: Binding<PlantalogEntry>, capturedImage: Binding<Image?>, isEditViewPresented: Binding<Bool>, isNewEntry: Bool) {
-//        _entry = entry
-//        _capturedImage = capturedImage
-//        _isEditViewPresented = isEditViewPresented
-//        self.isNewEntry = isNewEntry
-//
-//
-//    }
     
     var body: some View {
         GeometryReader { screen in
@@ -81,7 +73,9 @@ struct DetailEditView: View {
                                     
                                     entry = editedEntry
                                     
-                                    model.entries.append(entry)
+                                    if isNewEntry {
+                                        model.entries.append(entry)
+                                    }
                                     isEditViewPresented = false
                                 }) {
                                     Text("Done")

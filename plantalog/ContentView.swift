@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State private var searchImage: UIImage? = nil
     @State private var capturedImage: Image? = nil
     @State private var isCustomViewPresented = false
     @State private var isEditViewPresented = false
     @State private var entry: PlantalogEntry = PlantalogEntry.emptyEntry
-    @StateObject private var model: EntryModel = .init()
-    
     @StateObject var photoLibraryService = PhotoLibraryService()
+    @EnvironmentObject var model: EntryModel
+    
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: () -> Void
+    
     
     var body: some View {
         ZStack {
@@ -35,25 +38,29 @@ struct ContentView: View {
                 })
                 .padding(.bottom)
                 
-                .sheet(isPresented: $isCustomViewPresented, content: { CustomCameraView(capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented, entry: $entry)})
+                .sheet(isPresented: $isCustomViewPresented, content: { CustomCameraView(searchImage: $searchImage, capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented, entry: $entry)})
                 
                 .sheet(isPresented: $isEditViewPresented, onDismiss: {
                     photoLibraryService.fetchAllPhotos(assetsToFetch: model.photoIDs)
                     entry = PlantalogEntry.emptyEntry
                 }){
-                    DetailEditView(entry: $entry, capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented, isNewEntry: true, editedEntry: $entry.wrappedValue)
+                    ImageSearchView(entry: $entry, searchImage: $searchImage, capturedImage: $capturedImage, isEditViewPresented: $isEditViewPresented)
                 }
                         
             }
         }
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { saveAction() }
+        }
         .environmentObject(photoLibraryService)
         .environmentObject(model)
+        
     }
         
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(saveAction: {})
     }
 }

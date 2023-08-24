@@ -8,15 +8,16 @@
 import Foundation
 import SwiftUI
 
-struct PlantalogEntry {
-    // let id: UUID
+struct PlantalogEntry: Codable {
+    let id: UUID
     var photoID: String?   // local identifier
     var species: String
     var dateDiscovered: Date
     var locationDiscovered: String
     var notes: String
     
-    init(photoID: String?, species: String, dateDiscovered: Date, locationDiscovered: String, notes: String) {
+    init(id: UUID = UUID(), photoID: String?, species: String, dateDiscovered: Date, locationDiscovered: String, notes: String) {
+        self.id = id
         self.photoID = photoID
         self.species = species
         self.dateDiscovered = dateDiscovered
@@ -59,5 +60,35 @@ class EntryModel: ObservableObject {
     var species: [String] { entries.map(\.species) }
     var dates: [Date] { entries.map(\.dateDiscovered) }
     var locations: [String] { entries.map(\.locationDiscovered) }
+    
+    
+    private static func fileURL() throws -> URL {
+        try FileManager.default.url(for: .documentDirectory,
+                                            in: .userDomainMask,
+                                            appropriateFor: nil,
+                                            create: false)
+        .appendingPathComponent("entries.data")
+    }
+    
+    func load() async throws {
+        let task = Task<[PlantalogEntry], Error> {
+            let fileURL = try Self.fileURL()
+            guard let data = try? Data(contentsOf: fileURL) else { return [] }
+            let entries = try JSONDecoder().decode([PlantalogEntry].self, from: data)
+            return entries
+        }
+        let entries = try await task.value
+        self.entries = entries
+        
+    }
+    
+    func save(entries: [PlantalogEntry]) async throws {
+        let task = Task {
+            let data = try JSONEncoder().encode(entries)
+            let outfile = try Self.fileURL()
+            try data.write(to: outfile)
+        }
+        _ = try await task.value
+    }
     
 }
